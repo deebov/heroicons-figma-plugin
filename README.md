@@ -1,6 +1,6 @@
 # Heroicons Figma plugin
 
-Quick access to [Heroicons](https://heroicons.dev) icons in Figma.
+Figma plugin for ![Heroicons](https://github.com/tailwindlabs/heroicons)
 
 👉 https://www.figma.com/c/plugin/876119978690687541/Heroicons
 
