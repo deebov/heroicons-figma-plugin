@@ -114,6 +114,8 @@ interface ViewportAPI {
   // 1.0 means 100% zoom, 0.5 means 50% zoom.
   zoom: number
 
+  bounds: any
+
   // Adjust the viewport such that it shows the provided nodes.
   scrollAndZoomIntoView(nodes: ReadonlyArray<BaseNode>)
 }

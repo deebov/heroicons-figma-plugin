@@ -7,7 +7,7 @@ module.exports = (env, argv) => ({
   devtool: argv.mode === 'production' ? false : 'inline-source-map',
   entry: {
     ui: './src/ui.tsx',
-    main: './src/main.ts',
+    main: './src/main.tsx',
   },
   output: {
     filename: '[name].js',
@@ -15,6 +15,15 @@ module.exports = (env, argv) => ({
   },
   module: {
     rules: [
+      {
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        exclude: [],
+        query: {
+          plugins: [],
+          presets: ['@babel/preset-react'],
+        },
+      },
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
@@ -24,10 +33,11 @@ module.exports = (env, argv) => ({
         test: /\.css$/,
         loader: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
       },
+      { test: /\.(png|jpg|gif|webp|svg)$/, loader: [{ loader: 'url-loader' }] },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
   },
   plugins: [
     new HtmlWebpackPlugin({

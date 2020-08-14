@@ -1,18 +1,21 @@
 import { jsx } from '@emotion/core'
-import { icons } from 'feather-icons'
 import theme from '../theme'
 import SearchIcon from './search-icon'
 
-const ICON_COUNT = Object.keys(icons).length
-
 interface SearchInputProps extends React.HTMLProps<HTMLDivElement> {
   value: string
+  iconCount: number
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-function SearchInput({ value, onChange, ...props }: SearchInputProps) {
+function SearchInput({
+  value,
+  onChange,
+  iconCount,
+  ...props
+}: SearchInputProps) {
   return (
-    <div css={{ position: 'relative' }} {...props}>
+    <div css={{ position: 'relative', zIndex: 1 }} {...props}>
       <div
         css={{
           position: 'absolute',
@@ -28,7 +31,7 @@ function SearchInput({ value, onChange, ...props }: SearchInputProps) {
         type="search"
         value={value}
         onChange={onChange}
-        placeholder={`Search ${ICON_COUNT} icons`}
+        placeholder={`Search ${iconCount} icons`}
         css={{
           width: '100%',
           height: 40,

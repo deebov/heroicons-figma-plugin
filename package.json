@@ -1,5 +1,5 @@
 {
-  "name": "figma-feather",
+  "name": "figma-heroicons",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -7,13 +7,16 @@
     "watch": "webpack --mode=development --watch"
   },
   "dependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-react": "^7.10.4",
     "@emotion/core": "^10.0.14",
-    "@types/feather-icons": "^4.7.0",
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.4",
+    "babel-loader": "^8.1.0",
     "css-loader": "^3.0.0",
-    "feather-icons": "^4.24.1",
+    "figma-plugin-ds": "^0.1.8",
     "fuse.js": "^3.4.5",
+    "heroicons": "^0.3.7",
     "html-webpack-inline-source-plugin": "^0.0.10",
     "html-webpack-plugin": "^3.2.0",
     "react": "^16.8.6",
@@ -23,5 +26,8 @@
     "typescript": "^3.5.2",
     "webpack": "^4.35.2",
     "webpack-cli": "^3.3.5"
+  },
+  "devDependencies": {
+    "url-loader": "^4.1.0"
   }
 }

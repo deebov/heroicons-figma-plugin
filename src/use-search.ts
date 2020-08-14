@@ -1,22 +1,25 @@
-import { icons } from 'feather-icons'
 import Fuse from 'fuse.js'
 import React from 'react'
+import { OutlineIcons, SolidIcons, AllIcons } from './icons'
+const outlineKeys = Object.keys(OutlineIcons)
+const solidKeys = Object.keys(SolidIcons)
+const allKeys = Object.keys(AllIcons)
 
-function useSearch(query: string) {
-  const [results, setResults] = React.useState(Object.values(icons))
+const keys = { all: allKeys, outline: outlineKeys, solid: solidKeys }
 
-  const fuse = new Fuse(Object.values(icons), {
+function useSearch(query: string, type: 'all' | 'outline' | 'solid') {
+  const [results, setResults] = React.useState(keys[type])
+  const fuse = new Fuse(keys[type], {
     threshold: 0.2,
-    keys: ['name', 'tags'],
   })
 
   React.useEffect(() => {
     if (query.trim()) {
-      setResults(fuse.search(query.trim()))
+      setResults(fuse.search(query.trim()).map((i: any) => keys[type][i]))
     } else {
-      setResults(Object.values(icons))
+      setResults(keys[type])
     }
-  }, [query])
+  }, [query, type])
 
   return results
 }
