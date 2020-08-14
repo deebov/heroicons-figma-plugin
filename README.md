@@ -5,7 +5,7 @@ Quick access to [Heroicons](https://heroicons.dev) icons in Figma.
 👉 https://www.figma.com/c/plugin/876119978690687541/Heroicons
 
 
-![cover](./assets/banner.png)
+![Cover](/assets/banner.jpg)
 
 ## Local development
 
